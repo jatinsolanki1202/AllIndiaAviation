@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rainbow-text {
+            font-family: cursive;
+            font-weight: bold;
+            font-size: 50px;
+        }
+        .rainbow-text .block-line > span {
+            display: inline-block;
+        }
+        
+      
+          .Marquee-box {
+            position: relative;
+            display: inline-block;
+            width: 500px;
+            height: 80px;
+            -webkit-perspective: 500px;
+                    perspective: 500px;
+            top: auto;
+            left: auto;
+            z-index: 100;
+         }
+         .MyMarquee {
+            text-align: center;
+            font-weight: bold;
+            width: 100%;
+            height: 100%;
+            font-size: 25px;
+            border: 1px solid #8C8C8C;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            vertical-align: middle;
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+            background-color: #FF0000;
+       
+            text-shadow: 1px 1px 0px #A3A3A3;
+            box-shadow: 13px 13px 6px 4px #A3A3A3;
+            transform: rotateX(43deg);
+            transform-origin: 50% 50% 0px;
+         }
+         .MyMarquee div {
+            display: inline-block;
+            vertical-align: middle;
+         }
+         .MyMarquee a, .MyMarquee img {
+            display: inline-block;
+            text-decoration: underline;
+            color: #FFFFFF;
+            vertical-align: middle;
+         }
+         .center-body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	/****** center box
+	width: 300px;
+	height: 300px;
+	border: solid 1px #aaa; */
+}
+body {
+	background: #0a975d;
+}
+.loader-circle-9 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 70px;
+	height: 70px;
+	background: transparent;
+	border: 3px solid #3c3c3c;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 70px;
+	font-family: sans-serif;
+	font-size: 12px;
+	color: #00eaff;
+	text-transform: uppercase;
+	box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+.loader-circle-9:before {
+	content: '';
+	position: absolute;
+	top: -3px;
+	left: -3px;
+	width: 100%;
+	height: 100%;
+	border: 3px solid transparent;
+	border-top: 3px solid #00eaff;
+	border-right: 3px solid #00eaff;
+	border-radius: 50%;
+	animation: animateC 2s linear infinite;
+}
+.loader-circle-9 span {
+	display: block;
+	position: absolute;
+	top: calc(50% - 2px);
+	left: 50%;
+	width: 50%;
+	height: 4px;
+	background: transparent;
+	transform-origin: left;
+	animation: animate 2s linear infinite;
+}
+.loader-circle-9 span:before {
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #00eaff;
+	top: -6px;
+	right: -8px;
+	box-shadow: 0 0 20px #00eaff;
+}
+@keyframes animateC {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@keyframes animate {
+	0% {
+		transform: rotate(45deg);
+	}
+	100% {
+		transform: rotate(405deg);
+	}
+}
+         </style>
+
+
+<style>
+    #hcg-slider-1 .hcg-slide-container {
+        width: auto;
+        height: auto;
+    }
+    .hcg-slider {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .hcg-slide-container {
+        max-width: 100%;
+        display: inline-block;
+        position: relative;
+    }
+    .hcg-slides {
+        display: none;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        border: solid 1px #a0a0a0;
+    }
+    .hcg-slides img {
+        max-width: 100%;
+        max-height: 100%;
+        display: inline-block;
+    }
+    .hcg-slide-text {
+        color: #ffffff;
+        font-size: 14px;
+        padding: 3px 5px;
+        position: absolute;
+        bottom: 0;
+        border-radius: 5px;
+        left: 50%;
+        text-align: center;
+        text-shadow: 0 0 2px #000;
+        background-color: rgba(255,255,255,0.30);
+        display: inline-block;
+        transform: translate(-50%, -5px);
+    }
+    .hcg-slide-dot-control {
+        margin-top: 10px;
+        text-align: center;
+    }
+    .hcg-slide-dot {
+        cursor: pointer;
+        height: 13px;
+        width: 13px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .hcg-slide-dot.dot-active {
+        background-color: #717171;
+    }
+    .hcg-slide-number {
+        color: #ffffff;
+        font-size: 12px;
+        padding: 4px 7px;
+        position: absolute;
+        border-radius: 5px;
+        top: 5px;
+        left: 5px;
+        background-color: rgba(255,255,255,0.30);
+    }
+    /************CSS Animation***********/
+    
+    .animated { 
+        animation-name: tada; 
+        animation-duration: 1s;
+    }
+    @keyframes tada {
+        0% {
+            transform: scale(1);
+        }
+        10%, 20% {
+            transform: scale(0.9) rotate(-3deg);
+        }
+        30%, 50%, 70%, 90% {
+            transform: scale(1.1) rotate(3deg);
+        }
+        40%, 60%, 80% {
+            transform: scale(1.1) rotate(-3deg);
+        }
+        100% {
+            transform: scale(1) rotate(0);
+        }
+    }
+    .tada {
+        animation-name: tada;
+    }
+    
+    *{cursor: zoom-in;}
+
+
+.css-3d-text {
+    font-size: 128px;
+    color: #a1ad8e;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-shadow: 0px 0px 0 rgb(152,164,133),
+                 1px -1px 0 rgb(143,155,124),
+                 2px -2px 0 rgb(134,146,115),
+                 3px -3px 0 rgb(125,137,106),
+                 4px -4px 0 rgb(116,128,97),
+                 5px -5px 0 rgb(107,119,88),
+                 6px -6px 0 rgb(99,111,80),
+                 7px -7px 0 rgb(90,102,71),
+                 8px -8px 0 rgb(81,93,62),
+                 9px -9px 0 rgb(72,84,53),
+                 10px -10px 0 rgb(63,75,44),
+                 11px -11px 0 rgb(54,66,35),
+                 12px -12px 0 rgb(45,57,26),
+                 13px -13px 0 rgb(36,48,17),
+                 14px -14px  0 rgb(27,39,8),
+                 15px -15px 14px rgba(0,0,0,0.6),
+                 15px -15px 1px rgba(0,0,0,0.5),
+                 0px 0px 14px rgba(0,0,0,.2);
+ }
+    </style>
+</head>
+<body>
+    <div class="rainbow-text" >
+        <span class="block-line"><span><span style="color:#ff0000;">J</span><span style="color:#001aff;">a</span><span style="color:#32A9FF;">t</span><span style="color:#DF9791;">i</span><span style="color:#C26C72;">n</span><span style="color:#070BF5;">S</span><span style="color:#223379;">o</span><span style="color:#6078A1;">l</span><span style="color:#315109;">a</span><span style="color:#9BFD33;">n</span><span style="color:#B40501;">k</span><span style="color:#E7A666;">i</span></span></span>
+    </div>
+
+
+
+    <select name="name_i3067" id="name_i3067" style="width:507px;font-size:27px;padding:14px;background-color:#a1cdff;border: solid 1px #ff0000;color:#0004ff;">
+        <option value="https://www.html-code-generator.com/">HTML Code Generator</option>
+        <option value="https://www.google.com/">Google</option>
+        <option value="https://www.facebook.com">facebook</option>
+        <option value="https://www.facebook.com">helo</option>
+    </select>
+
+    <div class="Marquee-box">
+        <marquee class="MyMarquee" id="my_marquee" direction="right" behavior="3" scrollamount="14" onmouseover="this.stop()" onmouseout="this.start()">
+          <div>jatin</div>
+          <div><img src="/images/HTMLpicture.png" width="120" height="80" alt="marquee image"></div>
+          <div><a href="/html-marquee-generator.php">HTML Code Generator</a></div>
+        </marquee>
+      </div>
+     
+
+
+
+
+      <div id="hcg-slider-1" class="hcg-slider">
+        <div class="hcg-slide-container">
+        <div class="hcg-slider-body">
+            <a class="hcg-slides animated" style="display:flex">
+                <span class="hcg-slide-number">1/5</span>
+                <img src="https://www.html-code-generator.com/images/slider/1.png" alt="image 1">
+                <span class="hcg-slide-text">image 1</span>
+            </a>
+        </div>
+    </div>
+    <div class="hcg-slide-dot-control"></div>
+    </div>
+    
+
+
+
+    <script>
+        (() => {
+        //If you want to add more images, add the link name and URL image URL in the array list below.
+            const images_list = [
+        {
+            "url": "https://www.html-code-generator.com/images/slider/1.png",
+            "alt": "",
+            "name": "image 1",
+            "link": ""
+        },
+        {
+            "url": "https://www.html-code-generator.com/images/slider/2.png",
+            "alt": "",
+            "name": "image 2",
+            "link": ""
+        },
+        {
+            "url": "https://www.html-code-generator.com/images/slider/3.png",
+            "alt": "",
+            "name": "image 3",
+            "link": ""
+        },
+        {
+            "url": "https://www.html-code-generator.com/images/slider/4.png",
+            "alt": "",
+            "name": "image 4",
+            "link": ""
+        },
+        {
+            "url": "https://www.html-code-generator.com/images/slider/5.png",
+            "alt": "",
+            "name": "image 5",
+            "link": ""
+        }
+            ];
+        
+        // generated by https://www.html-code-generator.com/html/image-slideshow-generator
+            let slider_id = document.querySelector("#hcg-slider-1");
+        
+            // append all images
+            let dots_div = "";
+            let images_div = "";
+            for (let i = 0; i < images_list.length; i++) {
+                // if no link without href="" tag
+                let href = (images_list[i].link == "" ? "":' href="'+images_list[i].link+'"');
+                images_div += '<a'+href+' class="hcg-slides animated"'+(i === 0 ? ' style="display:flex"':'')+'>'+
+                                '<span class="hcg-slide-number">'+(i+1)+'/'+images_list.length+'</span>'+
+                                '<img src="'+images_list[i].url+'" alt="'+images_list[i].name+'">'+
+                                '<span class="hcg-slide-text">'+images_list[i].name+'</span>'+
+                             '</a>';
+                dots_div += '<a href="#" class="hcg-slide-dot'+(i === 0 ? ' dot-active':'')+'" data-id="'+i+'"></a>';
+            }
+            slider_id.querySelector(".hcg-slider-body").innerHTML = images_div;
+            slider_id.querySelector(".hcg-slide-dot-control").innerHTML = dots_div;
+        
+            let slide_index = 0;
+        
+            const images = slider_id.querySelectorAll(".hcg-slides");
+            const dots = slider_id.querySelectorAll(".hcg-slide-dot");
+            const showSlides = () => {
+                if (slide_index > images.length-1) {
+                    slide_index = 0;
+                }
+                if (slide_index < 0) {
+                    slide_index = images.length-1;
+                }
+                for (let i = 0; i < images.length; i++) {
+                    images[i].style.display = "none";
+                    dots[i].classList.remove("dot-active");
+                    if (i == slide_index) {
+                        images[i].style.display = "flex";
+                        dots[i].classList.add("dot-active");
+                    }
+                }
+            }
+        
+            const dot_click = event => {
+                event.preventDefault();
+                slide_index = event.target.dataset.id;
+                showSlides();
+            }
+        
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].addEventListener("click", dot_click, false);
+            }
+            // auto play
+            setInterval(() => {
+                slide_index++;
+                showSlides();
+            }, 2000);
+        
+        })();
+        </script>
+
+<div class="css-3d-text">Jatin</div>
+      <a href="http://www.aiaaindia.com/gallery.html" id="open-popup">open popup</a>
+      <script>
+        (() => {
+            let id = document.getElementById("open-popup");
+            let popupWindow = null;
+            let windowSize = 'width=800,height=500,left=283,top=134';
+        
+            id.addEventListener("click", function(event){
+                let url = this.href;
+                if (popupWindow === null || popupWindow.closed) {
+                    popupWindow = window.open(url, 'myWindow', windowSize);
+                } else {
+                    popupWindow.focus();
+                }
+                event.preventDefault();
+            });
+        })();
+        </script>
+
+<div class="center-body">
+    <div class="loader-circle-9">Loading
+      <span></span>
+    </div>
+    </div>
+
+    Gujarat state aviation infrastructure
+company ltd
+Airport manager at mandavi
+Dhara Patel
+
+Parul€lJniversity
+Your promising
+CAREER IN HEALTHCARE
+awaits you!
+Pursue B.Sc Paramedical
+from parul university
+Top
+universities ot Phumaey
+APPLY NOW
+
+1
+"Happiness is
+not by chance,
+but by choice."
+—JIM ROHN
+RS
+</body>
+</html>
